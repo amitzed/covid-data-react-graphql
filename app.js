@@ -21,3 +21,26 @@ const typeDefs = gql `
     locations: [Location]
   }
 `;
+
+const resolvers = {
+  Query: {
+    locations: async () => {
+      try {
+        const locations = await axios.get("https://api.covid19api.com/summary");
+        // locations.data.Countries.map()
+        return locations.data.map(({
+          Country,
+          NewConfirmed,
+          TotalConfirmed,
+          NewDeaths,
+          TotalDeaths,
+          NewRecovered,
+          TotalRecovered,
+          Date
+        }))
+      } catch (error) {
+        throw error
+      }
+    },
+  },
+}
