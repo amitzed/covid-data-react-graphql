@@ -1,7 +1,7 @@
 {
   "name": "GraphQL-Covid-Cases",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "repository": "https://github.com/amitzed/covid-data-react-graphql.git",
   "author": "Amit Zaman",
   "license": "MIT",
