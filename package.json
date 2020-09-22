@@ -6,7 +6,7 @@
   "author": "Amit Zaman",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ser/index.js"
+    "start": "nodemon src/index.js"
   },
   "dependencies": {
     "apollo-server": "^2.18.0",

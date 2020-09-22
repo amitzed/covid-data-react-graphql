@@ -1,20 +1,16 @@
-import { ApolloServer, gql } = require("apollo-server");
+const { ApolloServer, gql } = require("apollo-server");
 const axios = require("axios")
 
 const typeDefs = gql `
-  type: Location {
-    Countries [
-      {
-        Country: String
-        NewConfirmed: Int
-        TotalConfirmed: Int
-        NewDeaths: Int
-        TotalDeaths: Int
-        NewRecovered: Int
-        TotalRecovered: Int
-        Date: String
-      }
-    ]
+  type Location {
+    Country: String
+    NewConfirmed: Int
+    TotalConfirmed: Int
+    NewDeaths: Int
+    TotalDeaths: Int
+    NewRecovered: Int
+    TotalRecovered: Int
+    Date: String
   }
 
   type Query {
@@ -28,7 +24,7 @@ const resolvers = {
       try {
         const locations = await axios.get("https://api.covid19api.com/summary");
         // locations.data.Countries.map()
-        return locations.data.map(({
+        return locations.data.Countries.map(({ Country, NewConfirmed, TotalConfirmed, NewDeaths, TotalDeaths, NewRecovered, TotalRecovered, Date }) => ({
           Country,
           NewConfirmed,
           TotalConfirmed,
@@ -45,7 +41,7 @@ const resolvers = {
   },
 }
 
-const server = ApolloServer({
+const server = new ApolloServer({
   typeDefs,
   resolvers
 });
