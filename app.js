@@ -44,3 +44,11 @@ const resolvers = {
     },
   },
 }
+
+const server = ApolloServer({
+  typeDefs,
+  resolvers
+});
+
+server.listen()
+.then(({ url }) => console.log(`The Server Is Running At ${url}`));

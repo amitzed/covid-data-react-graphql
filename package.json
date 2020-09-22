@@ -5,9 +5,15 @@
   "repository": "https://github.com/amitzed/covid-data-react-graphql.git",
   "author": "Amit Zaman",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon ser/index.js"
+  },
   "dependencies": {
     "apollo-server": "^2.18.0",
     "axios": "^0.20.0",
     "graphql": "^15.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
