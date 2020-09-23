@@ -8,7 +8,8 @@ import App from './components/App';
 
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql'
+  uri: 'https://kod79.sse.codesandbox.io/',
+  // uri: 'http://localhost:4000/graphql'
 });
 
 ReactDOM.render(
